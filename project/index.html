@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nouf Saif | Legal Excellence</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Hide Google Translate banner */
+        .goog-te-banner-frame.skiptranslate {
+            display: none !important;
+        }
+      
+        /* Also hide tooltip and logo */
+        .goog-logo-link,
+        .goog-te-gadget span,
+        #goog-gt-tt,
+        .goog-tooltip,
+        .goog-te-balloon-frame {
+            display: none !important;
+        }
+        
+        :root {
+            --primary-color: #1a3a5f;
+            --secondary-color: #c8a971;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+        }
+        
+        body {
+            top: 0px !important; /* prevent page shifting */
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            padding-top: 80px; /* Added to account for fixed navbar */
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .brand-logo {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .logo-img {
+        width: 60px;   /* Adjust size */
+        height: 60px;
+        object-fit: contain;  /* Keeps proportions */
+        }
+
+        .nav-link {
+            color: var(--dark-color);
+            font-weight: 500;
+            margin: 0 10px;
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after, .nav-link.active:after {
+            width: 100%;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color);
+        }
+        
+        .language-selector {
+            margin-left: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px 10px;
+            font-size: 0.9rem;
+            background-color: white;
+            cursor: pointer;
+            max-width: 150px;
+        }
+        
+        .hero-section {
+            min-height: 100vh;
+            height: auto;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1589391886645-d51941baf7fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            color: white;
+            padding: 60px 0;
+        }
+        
+        .search-container {
+            background: rgba(26, 58, 95, 0.85);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin: 20px;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: var(--primary-color);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        
+        .btn-primary:hover {
+            background-color: #b5985f;
+            border-color: #b5985f;
+            color: white;
+        }
+        
+        .btn-outline-light {
+            border: 2px solid white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-left: 10px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        
+        .btn-outline-light:hover {
+            background-color: white;
+            color: var(--primary-color);
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .service-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            height: 100%;
+            margin-bottom: 20px;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-card {
+            background-color: var(--light-color);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .testimonial-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+        
+        .map-container {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            height: 300px;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .form-control:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 0.25rem rgba(200, 169, 113, 0.25);
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            width: 50px;
+            height: 50px;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 24px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        
+        .whatsapp-float:hover {
+            background-color: #128c7e;
+            color: white;
+        }
+
+        .service-card {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .service-card.active {
+            border: 2px solid var(--secondary-color);
+        }
+        
+        .service-click-hint {
+            margin-top: 15px;
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+        
+        .sub-services-section {
+            background-color: #f9f9f9;
+            border-radius: 15px;
+            padding: 30px 20px;
+            margin: 30px 0 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            display: none;
+        }
+        
+        .sub-services-section.active {
+            display: block;
+            animation: fadeIn 0.6s ease;
+        }
+        
+        .sub-service-card {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            background: white;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        
+        .sub-service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+        
+        .sub-service-icon {
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+            margin-bottom: 12px;
+        }
+        
+        .sub-service-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+        
+        .sub-service-text {
+            color: #666;
+            font-size: 0.85rem;
+        }
+        
+        .sub-service-arabic {
+            font-family: 'Arial', sans-serif;
+            font-size: 1rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            direction: rtl;
+        }
+        /* sakjkajsdksadjaskjdksadjkasjk */
+        .row {
+            margin: 0;
+        }
+
+    
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Adjust card padding for smaller columns */
+        .sub-service-card .card-body {
+            padding: 20px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            .sub-services-list .col-lg-3 {
+                flex: 0 0 50%;
+                max-width: 50%; /* 2 columns on large screens */
+            }
+        }
+        
+        @media (max-width: 992px) {
+            body {
+                padding-top: 70px;
+            }
+            
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+            
+            .hero-section {
+                min-height: 80vh;
+                padding: 40px 0;
+            }
+            
+            .search-container {
+                padding: 20px;
+            }
+            
+            .btn-primary, .btn-outline-light {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding-top: 60px;
+            }
+            
+            .navbar-brand {
+                font-size: 1.3rem;
+            }
+            
+            .brand-logo {
+                width: 30px;
+                height: 30px;
+                font-size: 14px;
+            }
+            
+            .hero-section {
+                min-height: 70vh;
+                padding: 30px 0;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .search-container {
+                margin: 10px;
+                padding: 15px;
+            }
+            
+            .input-group {
+                flex-direction: column;
+            }
+            
+            .input-group .btn {
+                margin-top: 10px;
+                margin-left: 0;
+                width: 100%;
+            }
+            
+            .d-flex.justify-content-center {
+                flex-direction: column;
+            }
+            
+            .btn-outline-light {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+            
+            .sub-services-list .col-lg-3 {
+                flex: 0 0 100%;
+                max-width: 100%; /* 1 column on small screens */
+            }
+            
+            .testimonial-img {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .map-container {
+                height: 250px;
+            }
+            
+            .whatsapp-float {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+                bottom: 15px;
+                right: 15px;
+            }
+            
+            .language-selector {
+                margin-top: 10px;
+                margin-left: 0;
+                max-width: 100%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            body {
+                padding-top: 50px;
+            }
+            
+            .navbar-brand {
+                font-size: 1.2rem;
+            }
+            
+            .hero-section {
+                min-height: 60vh;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
+            }
+            
+            .section-title:after {
+                width: 40px;
+            }
+            
+            .service-icon {
+                font-size: 2rem;
+            }
+            
+            .testimonial-card {
+                padding: 15px;
+            }
+            
+            .contact-form {
+                padding: 15px;
+            }
+            
+            footer {
+                padding: 30px 0 15px;
+            }
+        }
+
+        /* Fix for mobile navbar collapse */
+        @media (max-width: 991px) {
+            .navbar-collapse {
+                background-color: white;
+                padding: 15px;
+                border-radius: 5px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                margin-top: 10px;
+            }
+            
+            .nav-item {
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <!-- Logo Image -->
+      <img src="logo.png" alt="Logo" class="logo-img me-2">
+      NOUF SAIF
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+            data-bs-target="#navbarNav" aria-controls="navbarNav" 
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+        <li class="nav-item"><a class="nav-link" href="blogs.html">Blogs</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item">
+          <!-- Language Dropdown -->
+          <select class="language-selector" id="languageSelector">
+            <option value="en" selected>🇺🇸 English</option>
+            <option value="zh-CN">🇨🇳 中文 (Chinese)</option>
+            <option value="ur">🇵🇰 اردو (Urdu)</option>
+            <option value="fa">🇮🇷 فارسی (Persian)</option>
+            <option value="ar">🇸🇦 العربية (Arabic)</option>
+            <option value="es">🇪🇸 Español (Spanish)</option>
+            <option value="fr">🇫🇷 Français (French)</option>
+            <option value="ru">🇷🇺 Русский (Russian)</option>
+          </select>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="search-container text-center reveal">
+                        <h1 class="mb-4">Our Goal is to serve the Community in Rights Protection by Defending</h1>
+                        <div class="input-group mb-4">
+                            <input type="text" class="form-control form-control-lg" placeholder="Search legal topics, cases, or questions...">
+                            <button class="btn btn-primary" type="button">
+                                <i class="fas fa-search me-2"></i> Search
+                            </button>
+                        </div>
+                        <div class="d-flex justify-content-center mt-4 flex-wrap">
+                            <a href="#services" class="btn btn-primary mb-2">Our Services</a>
+                            <a href="#contact" class="btn btn-outline-light mb-2 ms-0 ms-md-2">
+                                <i class="fas fa-phone me-2"></i> Emergency Lawyer Contact
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Updated Services Section -->
+<section id="services" class="py-5 bg-light">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="section-title mx-auto" style="display: inline-block;">Our Legal Services</h2>
+                <p class="mb-5">We provide comprehensive legal solutions tailored to your specific needs. Our experienced attorneys are dedicated to protecting your rights and achieving the best possible outcomes for your case.</p>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-6 col-lg-4 mb-4 reveal">
+                <div class="card service-card" data-service="yearly">
+                    <div class="card-body text-center p-4">
+                        <div class="service-icon">
+                            <i class="fas fa-file-contract"></i>
+                        </div>
+                        <h5 class="card-title">Yearly Contract Services</h5>
+                        <p class="card-text">Comprehensive legal protection for businesses with ongoing legal needs through annual retainer agreements.</p>
+                        <!-- <div class="service-click-hint">
+                            <small>Click to view details <i class="fas fa-arrow-down ms-1"></i></small>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4 reveal">
+                <div class="card service-card" data-service="consultancy">
+                    <div class="card-body text-center p-4">
+                        <div class="service-icon">
+                            <i class="fas fa-gavel"></i>
+                        </div>
+                        <h5 class="card-title">Legal Consultancy</h5>
+                        <p class="card-text">Expert advice on various legal matters including business formation, contracts, disputes, and compliance.</p>
+                        <div class="service-click-hint">
+                            <small>Click to view details <i class="fas fa-arrow-down ms-1"></i></small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4 reveal">
+                <div class="card service-card" data-service="dispute">
+                    <div class="card-body text-center p-4">
+                        <div class="service-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h5 class="card-title">Our Service</h5>
+                        <p class="card-text">Professional mediation and arbitration services to resolve conflicts efficiently without lengthy court proceedings.</p>
+                        <div class="service-click-hint">
+                            <small>Click to view details <i class="fas fa-arrow-down ms-1"></i></small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Sub Services Section (initially hidden) -->
+        <div class="sub-services-section" id="subServices">
+            <div class="text-center mb-5">
+                <h3 id="subServiceTitle" class="mb-3"></h3>
+                <p id="subServiceDescription" class="text-muted"></p>
+            </div>
+            <div class="row" id="subServicesList">
+                <!-- Sub services will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- GeoGraphical Section -->
+    <section id="geographical" class="py-5">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-6 reveal">
+                    <h2 class="section-title">Geographical Presence</h2>
+                    <p>With offices in major cities and a network of legal professionals across the region, we are well-positioned to serve clients locally and internationally. Our widespread presence allows us to understand regional legal nuances and provide tailored solutions.</p>
+                    
+                    <div class="mt-4">
+                        <h5>Our Offices:</h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item border-0 ps-0"><i class="fas fa-map-marker-alt me-2 text-primary"></i> <strong>Head Office:</strong> Riyadh, Saudi Arabia</li>
+                            <li class="list-group-item border-0 ps-0"><i class="fas fa-map-marker-alt me-2 text-primary"></i> <strong>Branch Office:</strong> Jeddah, Saudi Arabia</li>
+                            <li class="list-group-item border-0 ps-0"><i class="fas fa-map-marker-alt me-2 text-primary"></i> <strong>International:</strong> Dubai, UAE</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 reveal">
+                    <div class="map-container mt-4 mt-lg-0">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d462562.65026772176!2d54.94755455000001!3d25.075759349999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43496ad9c645%3A0xbde66e5084295162!2sDubai%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2s!4v1684838975721!5m2!1sen!2s" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-5">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title mx-auto" style="display: inline-block;">What Our Clients Say</h2>
+                    <p class="mb-5">The satisfaction of our clients is our highest priority. Here's what they have to say about our services.</p>
+                </div>
+            </div>
+           
+            <div class="row mt-4">
+                <div class="col-lg-4 mb-4 reveal">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Client" class="testimonial-img">
+                            <div>
+                                <h5 class="mb-0">Sarah Johnson</h5>
+                                <p class="text-muted mb-0">Business Owner</p>
+                            </div>
+                        </div>
+                        <div class="rating mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="mb-0">"The team at Nouf Saif provided exceptional legal guidance during our merger process. Their expertise saved us time and money while ensuring compliance with all regulations."</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4 reveal">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="testimonial-img">
+                            <div>
+                                <h5 class="mb-0">Michael Thompson</h5>
+                                <p class="text-muted mb-0">Real Estate Developer</p>
+                            </div>
+                        </div>
+                        <div class="rating mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="mb-0">"I've been working with Nouf Saif for all my real estate legal matters for over five years. They consistently deliver excellent results and protect my interests in complex transactions."</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4 reveal">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Client" class="testimonial-img">
+                            <div>
+                                <h5 class="mb-0">Emily Rodriguez</h5>
+                                <p class="text-muted mb-0">Entrepreneur</p>
+                            </div>
+                        </div>
+                        <div class="rating mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="mb-0">"Their attorneys are not only highly skilled but also genuinely care about their clients. I couldn't have asked for better representation during my intellectual property case."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title mx-auto" style="display: inline-block;">Contact Us</h2>
+                    <p class="mb-5">Reach out to us for a consultation. We're here to address your legal concerns and provide the guidance you need.</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="contact-form reveal">
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="name" class="form-label">Full Name</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">Email Address</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">Subject</label>
+                                <input type="text" class="form-control" id="subject" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                    
+                    <div class="row mt-5">
+                        <div class="col-md-4 text-center reveal">
+                            <div class="mb-3">
+                                <i class="fas fa-map-marker-alt fa-2x text-primary"></i>
+                            </div>
+                            <h5>Address</h5>
+                            <p>123 Legal Avenue<br>Riyadh, Saudi Arabia</p>
+                        </div>
+                        <div class="col-md-4 text-center reveal">
+                            <div class="mb-3">
+                                <i class="fas fa-phone fa-2x text-primary"></i>
+                            </div>
+                            <h5>Phone</h5>
+                            <p>+966 12 345 6789<br>+966 98 765 4321</p>
+                        </div>
+                        <div class="col-md-4 text-center reveal">
+                            <div class="mb-3">
+                                <i class="fas fa-envelope fa-2x text-primary"></i>
+                            </div>
+                            <h5>Email</h5>
+                            <p>info@noufsaif.com<br>consult@noufsaif.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h4>Nouf Saif Law Firm</h4>
+                    <p>Providing exceptional legal services with integrity and excellence. Our team of experienced attorneys is dedicated to achieving the best outcomes for our clients.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Services</h5>
+                    <ul class="footer-links">
+                        <li><a href="#services">Yearly Contracts</a></li>
+                        <li><a href="#services">Legal Consultancy</a></li>
+                        <li><a href="#services">Dispute Resolution</a></li>
+                        <li><a href="#services">Corporate Law</a></li>
+                        <li><a href="#services">Real Estate Law</a></li>
+                        <li><a href="login.html">Admin Login</a></li>
+                        <li><a href="admin.html">Admin Dashboard</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h5>Contact Us</h5>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> 123 Legal Ave, Riyadh</li>
+                        <li><i class="fas fa-phone me-2"></i> +966 12 345 6789</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@noufsaif.com</li>
+                        <li><i class="far fa-clock me-2"></i> Sun-Thu: 9AM-5PM</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4" style="border-color: rgba(255,255,255,0.1);">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 Nouf Saif Law Firm. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Hidden Google Translate widget -->
+  <div id="google_translate_element" style="display:none;"></div>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/966123456789" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for navigation links
+            // document.querySelectorAll('a.nav-link').forEach(anchor => {
+            //     anchor.addEventListener('click', function(e) {
+            //         e.preventDefault();
+            //         const targetId = this.getAttribute('href');
+            //         const targetElement = document.querySelector(targetId);
+            //         if (targetElement) {
+            //             window.scrollTo({
+            //                 top: targetElement.offsetTop - 80,
+            //                 behavior: 'smooth'
+            //             });
+            //         }
+            //     });
+            // });
+            
+            // Form submission
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert('Thank you for your message. We will get back to you soon!');
+                    contactForm.reset();
+                });
+            }
+            
+            // Scroll reveal animation
+            function reveal() {
+                const reveals = document.querySelectorAll('.reveal');
+                for (let i = 0; i < reveals.length; i++) {
+                    const windowHeight = window.innerHeight;
+                    const elementTop = reveals[i].getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveals[i].classList.add('active');
+                    }
+                }
+            }
+            
+            window.addEventListener('scroll', reveal);
+            reveal(); // Initial call
+            
+            // // Language selector
+            // const languageSelector = document.getElementById('languageSelector');
+            // if (languageSelector) {
+            //     languageSelector.addEventListener('change', function() {
+            //         alert('Language selection: ' + this.options[this.selectedIndex].text);
+            //         // In a real implementation, you would change the page content here
+            //     });
+            // }
+        });
+    </script>
+
+  <!-- Google Translate Script -->
+        <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+            {
+                pageLanguage: 'en',
+                includedLanguages: 'en,zh-CN,ur,fa,ar,es,fr,ru',
+                autoDisplay: false
+            },
+            'google_translate_element'
+            );
+        }
+        </script>
+
+        <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+        <script>
+        const languageSelector = document.getElementById('languageSelector');
+
+        if (languageSelector) {
+            languageSelector.addEventListener('change', function () {
+            const lang = this.value;
+
+            // Find the hidden Google Translate <select>
+            const googleSelect = document.querySelector("select.goog-te-combo");
+
+            if (googleSelect) {
+                googleSelect.value = lang;
+                googleSelect.dispatchEvent(new Event("change")); // trigger Google Translate
+            }
+            });
+        }
+
+        // Function to hide Google Translate banner + fixes body top
+        function hideGoogleTranslate() {
+            const iframe = document.querySelector('.goog-te-banner-frame');
+            const banner = document.querySelector('.goog-te-banner-frame.skiptranslate');
+            const body = document.querySelector('body');
+
+            if (iframe) iframe.style.display = 'none';
+            if (banner) banner.style.display = 'none';
+            if (body) body.style.top = '0px';
+        }
+
+        // Run after Google Translate loads
+        setInterval(hideGoogleTranslate, 500);
+        </script>
+
+   <script>
+    // Service data
+    const services = {
+        // yearly: {
+        //     title: "Yearly Contract Services",
+        //     description: "Comprehensive legal protection for businesses with ongoing legal needs through annual retainer agreements.",
+        //     subs: [
+        //         {
+        //             title: "Business Formation",
+        //             icon: "fas fa-building",
+        //             description: "Business formation, mergers, acquisitions, and corporate governance."
+        //         },
+        //         {
+        //             title: "Contract Management",
+        //             icon: "fas fa-file-signature",
+        //             description: "Drafting, reviewing, and managing all your business contracts."
+        //         },
+        //         {
+        //             title: "Compliance Monitoring",
+        //             icon: "fas fa-clipboard-check",
+        //             description: "Ensuring your business stays compliant with all relevant regulations."
+        //         },
+        //         {
+        //             title: "Legal Documentation",
+        //             icon: "fas fa-file-alt",
+        //             description: "Preparation and review of all legal documents and agreements."
+        //         }
+        //     ]
+        // },
+       consultancy: {
+            title: "Legal Consultancy Services",
+            description: "Expert advice on various legal matters including business formation, contracts, disputes, and compliance.",
+            subs: [
+                {
+                    title: "Financial Transactions",
+                    arabic: "التماسات المالية",
+                    icon: "fas fa-money-bill-transfer",
+                    description: "Legal advice and consultation for financial transactions and monetary agreements."
+                },
+                {
+                    title: "Inheritance",
+                    arabic: "التوقعات",
+                    icon: "fas fa-heritage",
+                    description: "Guidance on inheritance laws, wills, estate planning, and distribution of assets."
+                },
+                {
+                    title: "Investment & Property Ownership",
+                    arabic: "الإستثمار والتملك العقاري",
+                    icon: "fas fa-chart-line",
+                    description: "Legal consultation for real estate investments, property ownership, and development projects."
+                },
+                {
+                    title: "Immigration & Residency Law",
+                    arabic: "قوانين الهجرة والأقامة",
+                    icon: "fas fa-passport",
+                    description: "Advice on immigration procedures, residency permits, and citizenship applications."
+                },
+                {
+                    title: "Tax",
+                    arabic: "الضرائب",
+                    icon: "fas fa-receipt",
+                    description: "Consultation on tax laws, compliance, planning, and dispute resolution."
+                },
+                {
+                    title: "Criminal Law",
+                    arabic: "قوانين الجنائية",
+                    icon: "fas fa-gavel",
+                    description: "Legal advice on criminal matters, defense strategies, and rights protection."
+                },
+                {
+                    title: "Family Business",
+                    arabic: "قانون الشركات المالية",
+                    icon: "fas fa-building",
+                    description: "Consultation for family-owned businesses, succession planning, and governance."
+                },
+                {
+                    title: "Sports Law",
+                    arabic: "قوانين الرياضية",
+                    icon: "fas fa-running",
+                    description: "Legal advice for sports professionals, contracts, and regulatory compliance."
+                },
+                {
+                    title: "Personal Status",
+                    arabic: "أحوال شخصية",
+                    icon: "fas fa-user",
+                    description: "Consultation on personal status matters including marriage, divorce, and family rights."
+                },
+                {
+                    title: "Civil Law",
+                    arabic: "القوانين المدنية",
+                    icon: "fas fa-balance-scale",
+                    description: "Legal advice on civil disputes, contracts, obligations, and personal rights."
+                },
+                {
+                    title: "Airline Disputes",
+                    arabic: "القوانين الطيران",
+                    icon: "fas fa-plane",
+                    description: "Consultation for airline-related disputes, passenger rights, and aviation regulations."
+                },
+                {
+                    title: "Legal Contract Services",
+                    arabic: "خدمات صياغة العقود",
+                    icon: "fas fa-file-contract",
+                    description: "Drafting, reviewing, and consulting on various legal contracts and agreements."
+                },
+                {
+                    title: "Reconciliation",
+                    arabic: "المصالحات",
+                    icon: "fas fa-handshake",
+                    description: "Mediation and reconciliation services for dispute resolution outside of court."
+                },
+                {
+                    title: "Alimony",
+                    arabic: "النفقة",
+                    icon: "fas fa-hand-holding-usd",
+                    description: "Legal consultation on alimony payments, calculations, and enforcement."
+                },
+                {
+                    title: "Custody",
+                    arabic: "الحضانة",
+                    icon: "fas fa-child",
+                    description: "Advice on child custody matters, rights, and arrangements."
+                },
+                {
+                    title: "Children of Citizen Mothers Rights",
+                    arabic: "حقوق أبناء المواطنات",
+                    icon: "fas fa-users",
+                    description: "Legal consultation on rights of children born to citizen mothers."
+                },
+                {
+                    title: "Wills",
+                    arabic: "الوصايا",
+                    icon: "fas fa-scroll",
+                    description: "Guidance on will preparation, execution, and estate planning."
+                },
+                {
+                    title: "Divorce & Its Consequences",
+                    arabic: "الطلاق وتبعاته",
+                    icon: "fas fa-heart-broken",
+                    description: "Comprehensive consultation on divorce procedures and their legal consequences."
+                }
+            ]
+        },
+        dispute: {
+            title: "Our Services",
+            description: "Professional mediation and arbitration services to resolve conflicts efficiently without lengthy court proceedings.",
+            subs: [
+                {
+                    title: "Criminal Cases",
+                    arabic: "القضايا الجنائية",
+                    icon: "fas fa-gavel",
+                    description: "Legal representation and defense in criminal matters and proceedings."
+                },
+                {
+                    title: "Rent Cases",
+                    arabic: "القضايا الإيجارية",
+                    icon: "fas fa-home",
+                    description: "Resolution of disputes between landlords and tenants."
+                },
+                {
+                    title: "Real Estate Contracts",
+                    arabic: "القضايا التعاقدات العقارية",
+                    icon: "fas fa-file-contract",
+                    description: "Handling disputes related to real estate contracts and agreements."
+                },
+                {
+                    title: "Financial Cases",
+                    arabic: "القضايا المالية",
+                    icon: "fas fa-money-bill-wave",
+                    description: "Resolution of financial disputes, debt recovery, and monetary claims."
+                },
+                {
+                    title: "Insurance Cases",
+                    arabic: "القضايا التأمين",
+                    icon: "fas fa-shield-alt",
+                    description: "Disputes related to insurance claims, coverage, and policy interpretations."
+                },
+                {
+                    title: "Personal Status",
+                    arabic: "أحوال شخصية",
+                    icon: "fas fa-user",
+                    description: "Matters related to personal status, family law, and individual rights."
+                },
+                {
+                    title: "Family Business",
+                    arabic: "الشبكات العائلية",
+                    icon: "fas fa-users",
+                    description: "Dispute resolution for family-owned businesses and inheritance matters."
+                },
+                {
+                    title: "Medical Malpractice",
+                    arabic: "الشبكات الطبية",
+                    icon: "fas fa-briefcase-medical",
+                    description: "Legal representation in medical negligence and healthcare-related disputes."
+                },
+                {
+                    title: "Contractual Cases",
+                    arabic: "الشبكات التعاقدية",
+                    icon: "fas fa-handshake",
+                    description: "Resolution of disputes arising from contractual agreements and breaches."
+                },
+                {
+                    title: "Banking",
+                    arabic: "المصارف والبنوك",
+                    icon: "fas fa-university",
+                    description: "Disputes related to banking transactions, loans, and financial services."
+                },
+                {
+                    title: "Digital Currency & Fraud",
+                    arabic: "العملات الرقمية والاحتيال",
+                    icon: "fas fa-coins",
+                    description: "Legal matters involving digital currencies, fraud, and financial scams."
+                },
+                {
+                    title: "Digital Data Issues",
+                    arabic: "ومسائل المعلومات الرقمية",
+                    icon: "fas fa-database",
+                    description: "Disputes related to digital information, data privacy, and cyber law."
+                },
+                {
+                    title: "Logistics Cases",
+                    arabic: "القضايا اللوجستية",
+                    icon: "fas fa-truck",
+                    description: "Legal matters involving transportation, supply chain, and logistics disputes."
+                },
+                {
+                    title: "Tax",
+                    arabic: "الضرائب",
+                    icon: "fas fa-receipt",
+                    description: "Resolution of tax-related disputes, audits, and compliance matters."
+                },
+                {
+                    title: "Airline Disputes",
+                    arabic: "قضايا الطيران",
+                    icon: "fas fa-plane",
+                    description: "Legal matters involving airline disputes, passenger rights, and aviation law."
+                },
+                {
+                    title: "Sports Disputes",
+                    arabic: "القضايا الرياضية",
+                    icon: "fas fa-running",
+                    description: "Resolution of disputes in sports contracts, endorsements, and athletic regulations."
+                },
+                {
+                    title: "Arbitration",
+                    arabic: "قضايا التحكيم",
+                    icon: "fas fa-balance-scale",
+                    description: "Alternative dispute resolution through arbitration proceedings."
+                },
+                {
+                    title: "Labor",
+                    arabic: "عملي",
+                    icon: "fas fa-briefcase",
+                    description: "Employment disputes, labor law matters, and workplace conflicts."
+                },
+                {
+                    title: "Contracts & Partnerships",
+                    arabic: "العقود والشراكات",
+                    icon: "fas fa-handshake",
+                    description: "Dispute resolution for business contracts, partnerships, and commercial agreements."
+                },
+                {
+                    title: "Documentary Notifications",
+                    arabic: "الإعلامات المستندية والكفالات المالية",
+                    icon: "fas fa-file-invoice-dollar",
+                    description: "Legal matters involving documentary credits and financial guarantees."
+                },
+                {
+                    title: "Other Financial Cases",
+                    arabic: "القضايا المالية الأخرى",
+                    icon: "fas fa-chart-line",
+                    description: "Various other financial disputes and monetary claims resolution."
+                }
+            ]
+        }
+    };
+
+    // DOM Elements
+    const serviceCards = document.querySelectorAll('.service-card');
+    const subServicesSection = document.getElementById('subServices');
+    const subServiceTitle = document.getElementById('subServiceTitle');
+    const subServiceDescription = document.getElementById('subServiceDescription');
+    const subServicesList = document.getElementById('subServicesList');
+
+    // Event Listeners
+    serviceCards.forEach(card => {
+        card.addEventListener('click', function() {
+            const serviceType = this.getAttribute('data-service');
+            showSubServices(serviceType);
+        });
+    });
+
+    // Functions
+    function showSubServices(serviceType) {
+        const service = services[serviceType];
+        if (!service) return;
+        
+        // Update UI
+        subServiceTitle.textContent = service.title;
+        subServiceDescription.textContent = service.description;
+        subServicesList.innerHTML = '';
+        
+        // Add sub services
+        service.subs.forEach((sub, index) => {
+            const colDiv = document.createElement('div');
+            colDiv.className = 'col-lg-3 col-md-6 mb-4'; // 4 columns per row on large screens
+            
+            // Check if Arabic text is available
+            const arabicHTML = sub.arabic ? `<div class="sub-service-arabic">${sub.arabic}</div>` : '';
+            
+            colDiv.innerHTML = `
+                <div class="sub-service-card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="sub-service-icon">
+                            <i class="${sub.icon}"></i>
+                        </div>
+                        ${arabicHTML}
+                        <h5 class="sub-service-title">${sub.title}</h5>
+                        <p class="sub-service-text">${sub.description}</p>
+                    </div>
+                </div>
+            `;
+            
+            subServicesList.appendChild(colDiv);
+        });
+        
+        // Show the section
+        subServicesSection.classList.add('active');
+        
+        // Scroll to the section
+        subServicesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+</script>
+</body>
+</html>
