@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials | Nouf Saif | Legal Excellence</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a3a5f;
+            --secondary-color: #c8a971;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            padding-top: 80px; /* Added to account for fixed navbar */
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+        
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .brand-logo {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .logo-img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+        }
+
+        
+        .nav-link {
+            color: var(--dark-color);
+            font-weight: 500;
+            margin: 0 10px;
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after, .nav-link.active:after {
+            width: 100%;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color);
+        }
+        
+        .language-selector {
+            margin-left: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px 10px;
+            font-size: 0.9rem;
+            background-color: white;
+            cursor: pointer;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .testimonial-card {
+            background-color: var(--light-color);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .testimonial-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 20px;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        
+        .whatsapp-float:hover {
+            background-color: #128c7e;
+            color: white;
+        }
+
+        /* Animation for scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Testimonial page specific styles */
+        .testimonial-hero {
+            background: linear-gradient(rgba(26, 58, 95, 0.9), rgba(26, 58, 95, 0.8)), url('https://images.unsplash.com/photo-1589391886645-d51941baf7fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80') no-repeat center center/cover;
+            padding: 100px 0;
+            color: white;
+        }
+        
+        .testimonial-filter {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+        
+        .filter-btn {
+            margin: 5px;
+            border-radius: 20px;
+        }
+        
+        .video-testimonial {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .video-testimonial .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(200, 169, 113, 0.8);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .video-testimonial .play-btn:hover {
+            background-color: var(--secondary-color);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        
+        .stats-box {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .stats-box:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stats-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .stats-label {
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+        
+        .pagination {
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .page-link {
+            color: var(--primary-color);
+            border: 1px solid #dee2e6;
+            padding: 0.5rem 0.75rem;
+        }
+        
+        .page-link:hover {
+            color: var(--secondary-color);
+            background-color: #e9ecef;
+            border-color: #dee2e6;
+        }
+        
+        .page-item.active .page-link {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+ <!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <div class="container">
+   <!-- Logo + Text -->
+        <a class="navbar-brand" href="index.html">
+        <img src="logo.png" alt="Logo" class="logo-img me-2">
+        <span class="brand-text">NOUF SAIF</span>
+        </a>
+
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+            data-bs-target="#navbarNav" aria-controls="navbarNav" 
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link active" href="testimonials.html">Testimonials</a></li>
+        <li class="nav-item"><a class="nav-link" href="blogs.html">Blogs</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item">
+          <!-- Language Dropdown -->
+          <select class="language-selector" id="languageSelector">
+            <option value="en" selected>🇺🇸 English</option>
+            <option value="zh-CN">🇨🇳 中文 (Chinese)</option>
+            <option value="ur">🇵🇰 اردو (Urdu)</option>
+            <option value="fa">🇮🇷 فارسی (Persian)</option>
+            <option value="ar">🇸🇦 العربية (Arabic)</option>
+            <option value="es">🇪🇸 Español (Spanish)</option>
+            <option value="fr">🇫🇷 Français (French)</option>
+            <option value="ru">🇷🇺 Русский (Russian)</option>
+          </select>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <!-- Testimonial Hero Section -->
+    <section class="testimonial-hero">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 reveal">
+                    <h1 class="mb-4">Client Testimonials</h1>
+                    <p class="lead">Discover what our clients have to say about their experience with Nouf Saif Law Firm. Their success stories are our greatest achievements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-5 bg-light">
+        <div class="container py-4">
+            <div class="row">
+                <div class="col-md-3 col-6 mb-4 mb-md-0 reveal">
+                    <div class="stats-box">
+                        <div class="stats-number" id="clientsCount">250+</div>
+                        <div class="stats-label">Satisfied Clients</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 mb-4 mb-md-0 reveal">
+                    <div class="stats-box">
+                        <div class="stats-number" id="casesCount">500+</div>
+                        <div class="stats-label">Cases Handled</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 reveal">
+                    <div class="stats-box">
+                        <div class="stats-number" id="successRate">98%</div>
+                        <div class="stats-label">Success Rate</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6 reveal">
+                    <div class="stats-box">
+                        <div class="stats-number" id="yearsCount">15+</div>
+                        <div class="stats-label">Years of Experience</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Filter Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="testimonial-filter text-center reveal">
+                        <h4 class="mb-4">Filter Testimonials</h4>
+                        <div class="d-flex flex-wrap justify-content-center">
+                            <button class="btn btn-outline-primary filter-btn active" data-filter="all">All</button>
+                            <button class="btn btn-outline-primary filter-btn" data-filter="corporate">Corporate Law</button>
+                            <button class="btn btn-outline-primary filter-btn" data-filter="realestate">Real Estate</button>
+                            <button class="btn btn-outline-primary filter-btn" data-filter="family">Family Law</button>
+                            <button class="btn btn-outline-primary filter-btn" data-filter="dispute">Dispute Resolution</button>
+                            <button class="btn btn-outline-primary filter-btn" data-filter="video">Video Testimonials</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title mx-auto" style="display: inline-block;">What Our Clients Say</h2>
+                    <p class="mb-5">The satisfaction of our clients is our highest priority. Here's what they have to say about our services.</p>
+                </div>
+            </div>
+           
+            <div class="row mt-4" id="testimonialsContainer">
+                <!-- Testimonial 1 -->
+                <div class="col-lg-4 mb-4 reveal testimonial-item" data-category="corporate">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Client" class="testimonial-img">
+                            <div>
+                                <h5 class="mb-0">Sarah Johnson</h5>
+                                <p class="text-muted mb-0">Business Owner</p>
+                            </div>
+                        </div>
+                        <div class="rating mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="mb-0">"The team at Nouf Saif provided exceptional legal guidance during our merger process. Their expertise saved us time and money while ensuring compliance with all regulations."</p>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="col-lg-4 mb-4 reveal testimonial-item" data-category="realestate">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="testimonial-img">
+                            <div>
+                                <h5 class="mb-0">Michael Thompson</h5>
+                                <p class="text-muted mb-0">Real Estate Developer</p>
+                            </div>
+                        </div>
+                        <div class="rating mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="mb-0">"I've been working with Nouf Saif for all my real estate legal matters for over five years. They consistently deliver excellent results and protect my interests in complex transactions."</p>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="col-lg-4 mb-4 reveal testimonial-item" data-category="family">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Client" class="testimonial-img">
+                            <div>
+                                <h5 class="mb-0">Emily Rodriguez</h5>
+                                <p class="text-muted mb-0">Entrepreneur</p>
+                            </div>
+                        </div>
+                        <div class="rating mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="mb-0">"Their attorneys are not only highly skilled but also genuinely care about their clients. I couldn't have asked for better representation during my intellectual property case."</p>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 4 -->
+                <div class="col-lg-4 mb-4 reveal testimonial-item" data-category="dispute">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Client" class="testimonial-img">
+                            <div>
+                                <h5 class="mb-0">Ahmed Al-Mansoori</h5>
+                                <p class="text-muted mb-0">CEO, TechStart Inc.</p>
+                            </div>
+                        </div>
+                        <div class="rating mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="mb-0">"Nouf Saif's dispute resolution team helped us navigate a complex partnership disagreement with professionalism and expertise. They achieved a favorable outcome without lengthy court battles."</p>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 5 -->
+                <div class="col-lg-4 mb-4 reveal testimonial-item" data-category="corporate">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Client" class="testimonial-img">
+                            <div>
+                                <h5 class="mb-0">Fatima Hassan</h5>
+                                <p class="text-muted mb-0">HR Director</p>
+                            </div>
+                        </div>
+                        <div class="rating mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="mb-0">"We've been using Nouf Saif's yearly contract services for three years now. Their proactive approach to legal issues has saved us from potential litigation multiple times."</p>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 6 - Video Testimonial -->
+                <div class="col-lg-4 mb-4 reveal testimonial-item" data-category="video">
+                    <div class="testimonial-card">
+                        <div class="video-testimonial mb-3">
+                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Video testimonial thumbnail" class="img-fluid">
+                            <div class="play-btn" data-bs-toggle="modal" data-bs-target="#videoModal" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="https://randomuser.me/api/portraits/women/50.jpg" alt="Client" class="testimonial-img">
+                            <div>
+                                <h5 class="mb-0">Layla Ahmed</h5>
+                                <p class="text-muted mb-0">Restaurant Owner</p>
+                            </div>
+                        </div>
+                        <div class="rating mb-3">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                        <p class="mb-0">"Watch my video testimonial to learn how Nouf Saif helped me navigate complex licensing issues for my business expansion."</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <nav aria-label="Testimonial pagination">
+                <ul class="pagination">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="py-5" style="background-color: var(--primary-color); color: white;">
+        <div class="container py-4">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8 reveal">
+                    <h2 class="mb-4">Share Your Experience</h2>
+                    <p class="lead mb-4">Have you worked with Nouf Saif Law Firm? We'd love to hear about your experience.</p>
+                    <a href="index.html#contact" class="btn btn-light btn-lg">Submit Your Testimonial</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h4>Nouf Saif Law Firm</h4>
+                    <p>Providing exceptional legal services with integrity and excellence. Our team of experienced attorneys is dedicated to achieving the best outcomes for our clients.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="testimonials.html">Testimonials</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>Services</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html#services">Yearly Contracts</a></li>
+                        <li><a href="index.html#services">Legal Consultancy</a></li>
+                        <li><a href="index.html#services">Dispute Resolution</a></li>
+                        <li><a href="index.html#services">Corporate Law</a></li>
+                        <li><a href="index.html#services">Real Estate Law</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h5>Contact Us</h5>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> 123 Legal Ave, Riyadh</li>
+                        <li><i class="fas fa-phone me-2"></i> +966 12 345 6789</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@noufsaif.com</li>
+                        <li><i class="far fa-clock me-2"></i> Sun-Thu: 9AM-5PM</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4" style="border-color: rgba(255,255,255,0.1);">
+            <div class="text-center">
+                <p class="mb-0">&copy; 2023 Nouf Saif Law Firm. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/966123456789" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Video Modal -->
+    <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="videoModalLabel">Client Testimonial</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="ratio ratio-16x9">
+                        <iframe id="testimonialVideo" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // // Smooth scrolling for navigation links
+            // document.querySelectorAll('a.nav-link').forEach(anchor => {
+            //     anchor.addEventListener('click', function(e) {
+            //         e.preventDefault();
+            //         const targetId = this.getAttribute('href');
+            //         const targetElement = document.querySelector(targetId);
+            //         if (targetElement) {
+            //             window.scrollTo({
+            //                 top: targetElement.offsetTop - 80,
+            //                 behavior: 'smooth'
+            //             });
+            //         }
+            //     });
+            // });
+            
+            // Scroll reveal animation
+            function reveal() {
+                const reveals = document.querySelectorAll('.reveal');
+                for (let i = 0; i < reveals.length; i++) {
+                    const windowHeight = window.innerHeight;
+                    const elementTop = reveals[i].getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveals[i].classList.add('active');
+                    }
+                }
+            }
+            
+            window.addEventListener('scroll', reveal);
+            reveal(); // Initial call
+            
+            // Language selector
+            const languageSelector = document.getElementById('languageSelector');
+            if (languageSelector) {
+                languageSelector.addEventListener('change', function() {
+                    alert('Language selection: ' + this.options[this.selectedIndex].text);
+                    // In a real implementation, you would change the page content here
+                });
+            }
+            
+            // Testimonial filtering
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const testimonialItems = document.querySelectorAll('.testimonial-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    testimonialItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Video testimonial modal
+            const videoModal = document.getElementById('videoModal');
+            if (videoModal) {
+                videoModal.addEventListener('show.bs.modal', function(event) {
+                    const button = event.relatedTarget;
+                    const videoUrl = button.getAttribute('data-video');
+                    const iframe = document.getElementById('testimonialVideo');
+                    iframe.src = videoUrl;
+                });
+                
+                videoModal.addEventListener('hide.bs.modal', function() {
+                    const iframe = document.getElementById('testimonialVideo');
+                    iframe.src = '';
+                });
+            }
+            
+            // Animated counters
+            function animateCounter(elementId, finalValue, duration) {
+                const element = document.getElementById(elementId);
+                const startValue = 0;
+                const increment = finalValue / duration;
+                let currentValue = startValue;
+                
+                const timer = setInterval(() => {
+                    currentValue += increment;
+                    if (currentValue >= finalValue) {
+                        clearInterval(timer);
+                        currentValue = finalValue;
+                    }
+                    element.textContent = Math.round(currentValue) + (elementId === 'successRate' ? '%' : '+');
+                }, 20);
+            }
+            
+            // Start counters when they come into view
+            const statsSection = document.querySelector('.bg-light');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter('clientsCount', 250, 100);
+                        animateCounter('casesCount', 500, 100);
+                        animateCounter('successRate', 98, 100);
+                        animateCounter('yearsCount', 15, 100);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            if (statsSection) {
+                observer.observe(statsSection);
+            }
+        });
+    </script>
+</body>
+</html>
